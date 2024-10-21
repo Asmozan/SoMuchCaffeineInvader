@@ -5,7 +5,6 @@ namespace Invader.General
 {
     public class Health : MonoBehaviour, IDamageable
     {
-        [field: SerializeField]
         public int MaxHealth
         {
             private get { return _maxHealth; }
