@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Invader.General;
 using UnityEngine;
 
@@ -9,18 +10,38 @@ namespace Invader.Player.Projectiles
     [RequireComponent(typeof(Collider))]
     public class BasicProjectile : MonoBehaviour
     {
+        public Action ReturnToPool { get; set; }
+        
         [SerializeField] private int _damageAmount = 50;
         
         private Movement _movement;
-
+        private Coroutine _lifetimeCoroutine;
+        
         private void Awake()
         {
             TryGetComponent(out _movement);
         }
         
-        private void Start()
+        private void OnEnable()
         {
-            Destroy(gameObject, 5.0f);
+            _lifetimeCoroutine = StartCoroutine(LifetimeCoroutine());
+        }
+
+        private void OnDisable()
+        {
+            if (_lifetimeCoroutine == null)
+            {
+                return;
+            }
+            
+            StopCoroutine(_lifetimeCoroutine);
+            _lifetimeCoroutine = null;
+        }
+        
+        private IEnumerator LifetimeCoroutine()
+        {
+            yield return new WaitForSeconds(2.0f);
+            ReturnToPool?.Invoke();
         }
         
         private void Update()
@@ -39,7 +60,12 @@ namespace Invader.Player.Projectiles
             
             damageable.TakeDamage(_damageAmount);
 
-            Destroy(gameObject);
+            ReturnToPool?.Invoke();
+        }
+        
+        public void SetExitPoint(Vector3 transformPosition)
+        {
+            transform.position = transformPosition;
         }
     }
 }
