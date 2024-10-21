@@ -1,0 +1,33 @@
+{
+  "enemies": [
+    {
+      "type": "Rectangle",
+      "health": 100,
+      "spawnChance": 50,
+      "movementSpeedMultiplier": 1.0,
+      "Prefab": null
+    },
+    {
+      "type": "BigRectangle",
+      "health": 200,
+      "spawnChance": 15,
+      "movementSpeedMultiplier": 0.8,
+      "Prefab": null
+    },
+    {
+      "type": "Sphere",
+      "health": 100,
+      "spawnChance": 25,
+      "movementSpeedMultiplier": 1.5,
+      "Prefab": null
+    },
+    {
+      "type": "BigSphere",
+      "health": 200,
+      "spawnChance": 10,
+      "movementSpeedMultiplier": 1.5,
+      "Prefab": null
+    }
+  ],
+  "baseEnemySpeed": 2.0
+}
