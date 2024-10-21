@@ -7,6 +7,7 @@ namespace Invader.Enemies
 {
     public class EnemyFactory
     {
+        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         private Dictionary<string, ObjectPool<GameObject>> _enemyPools;
 
         public EnemyFactory()
@@ -46,6 +47,7 @@ namespace Invader.Enemies
                 actionOnGet: enemy =>
                 {
                     enemy.SetActive(true);
+                    AssignRandomColor(enemy);
                 },
                 actionOnRelease: enemy =>
                 {
@@ -77,6 +79,8 @@ namespace Invader.Enemies
                 pool.Release(enemy);
                 enemyComponent.ReturnToPool = null;
             };
+            
+            AssignRandomColor(enemy);
         }
 
         private void ResetEnemy(GameObject enemy)
@@ -85,6 +89,17 @@ namespace Invader.Enemies
             if (healthComponent != null)
             {
                 healthComponent.ResetHealth();
+            }
+        }
+        
+        private void AssignRandomColor(GameObject enemy)
+        {
+            if (enemy.TryGetComponent(out Renderer renderer))
+            {
+                MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
+                renderer.GetPropertyBlock(propertyBlock);
+                propertyBlock.SetColor(BaseColor, Random.ColorHSV());
+                renderer.SetPropertyBlock(propertyBlock);
             }
         }
     }
