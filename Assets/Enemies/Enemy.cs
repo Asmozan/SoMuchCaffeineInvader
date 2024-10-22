@@ -1,5 +1,7 @@
+using System;
 using Invader.General;
 using Invader.Player;
+using Invader.Utility.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,9 +13,14 @@ namespace Invader.Enemies
     {
         public UnityAction ReturnToPool { get; set; }
         
+        [SerializeField] private GameEvent _addScoreEvent;
+        [SerializeField] private GameEvent _addExperienceEvent;
+        
         private float _movementSpeed;
         private Movement _movement;
         private Health _health;
+        private int _scorePoints;
+        private int _experiencePoints;
         
         private void Awake()
         {
@@ -22,10 +29,12 @@ namespace Invader.Enemies
             _health.OnDeath += HandleDeath;
         }
         
-        public void Initialize(int health, float movementSpeed)
+        public void Initialize(int health, float movementSpeed, int scorePoints, int experiencePoints)
         {
             _health.MaxHealth = health;
             _movement.Speed = movementSpeed;
+            _scorePoints = scorePoints;
+            _experiencePoints = experiencePoints;
         }
 
         private void Update()
@@ -41,6 +50,8 @@ namespace Invader.Enemies
         private void HandleDeath()
         {
             ReturnToPool?.Invoke();
+            _addScoreEvent.Raise(_scorePoints);
+            _addExperienceEvent.Raise(_experiencePoints);
             Debug.Log($"{gameObject.name} has died.");
         }
     }

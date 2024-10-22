@@ -8,6 +8,8 @@ namespace Invader.Enemies
         public int Health;
         public float SpawnChance;
         public float MovementSpeedMultiplier;
+        public int ScorePoints;
+        public int ExperiencePoints;
         public GameObject Prefab;
     }
 }
