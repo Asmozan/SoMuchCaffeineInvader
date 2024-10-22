@@ -8,7 +8,7 @@ namespace Invader.General
     {
         public int MaxHealth
         {
-            private get { return _maxHealth; }
+            get { return _maxHealth; }
             set
             {
                 _maxHealth = value;
@@ -16,6 +16,27 @@ namespace Invader.General
             }
         }
 
+        public int CurrentHealth
+        {
+            get { return _currentHealth; }
+            set
+            {
+                if (value >= _maxHealth)
+                {
+                    _currentHealth = _maxHealth;
+                    return;
+                }
+                if (value <= 0)
+                {
+                    _currentHealth = 0;
+                    HandleDeath();
+                    return;
+                }
+                
+                _currentHealth = value;
+            }
+        }
+        
         private int _currentHealth;
         private int _maxHealth;
         
@@ -34,6 +55,12 @@ namespace Invader.General
             }
         }
 
+        public void FullHeal()
+        {
+            Debug.Log($"{gameObject.name} has been fully healed.");
+            _currentHealth = MaxHealth;
+        }
+        
         public void HealByMaxPercentage(float percentage)
         {
             int healAmount = (int) (MaxHealth * percentage);
