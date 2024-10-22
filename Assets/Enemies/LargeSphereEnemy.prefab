@@ -91,5 +91,73 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5459954251203737592}
+    - targetCorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8234977014161138916}
+    - targetCorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 134830044644211472}
   m_SourcePrefab: {fileID: 100100000, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+--- !u!1 &1797383809333950766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+  m_PrefabInstance: {fileID: 5075546937702968951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5459954251203737592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797383809333950766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f0f60d8605eab439d0b44fe8ed3df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onDamageTakenEvent: {fileID: 11400000, guid: c2bf9cd4490dd514f9177ab1421648bf, type: 2}
+--- !u!114 &8234977014161138916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797383809333950766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5849905c19745a04fad21fd969c35400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedDecreasePercentage: 0.1
+--- !u!114 &134830044644211472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797383809333950766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6243504e1075d640b73b6318babadc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEventListeningTo: {fileID: 11400000, guid: c2bf9cd4490dd514f9177ab1421648bf, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8234977014161138916}
+        m_TargetAssemblyTypeName: Invader.Utility.Events.OnEventSlowDown, Assembly-CSharp
+        m_MethodName: SlowDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
