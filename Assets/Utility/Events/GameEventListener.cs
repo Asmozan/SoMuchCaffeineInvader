@@ -5,11 +5,13 @@ using UnityEngine.Events;
 namespace Invader.Utility.Events
 {
     [Serializable]
-
+    public class ExtendedUnityEvent : UnityEvent<object> { }
+    
+    [Serializable]
     public class GameEventListener : MonoBehaviour
     {
         [SerializeField] private GameEvent _gameEventListeningTo;
-        [SerializeField] private UnityEvent _response;
+        [SerializeField] private ExtendedUnityEvent _response;
     
         private void OnEnable()
         {
@@ -21,9 +23,9 @@ namespace Invader.Utility.Events
             _gameEventListeningTo.UnregisterListener(this);
         }
 
-        public void OnEventRaised()
+        public void OnEventRaised(object data)
         {
-            _response.Invoke();
+            _response.Invoke(data);
         }
     }
 

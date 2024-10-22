@@ -12,7 +12,15 @@ namespace Invader.Utility.Events
         {
             foreach (var listener in listeners)
             {
-                listener.OnEventRaised();
+                listener.OnEventRaised(null);
+            }
+        }
+        
+        public void Raise(object data)
+        {
+            foreach (var listener in listeners)
+            {
+                listener.OnEventRaised(data);
             }
         }
         
