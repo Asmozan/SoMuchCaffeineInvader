@@ -72,7 +72,10 @@ namespace Invader.Enemies
                 return;
             }
 
-            enemyComponent.Initialize(data.Health, baseSpeed * data.MovementSpeedMultiplier);
+            enemyComponent.Initialize(data.Health, 
+                baseSpeed * data.MovementSpeedMultiplier,
+                data.ScorePoints,
+                data.ExperiencePoints);
 
             enemyComponent.ReturnToPool = () => {
                 ResetEnemy(enemy);

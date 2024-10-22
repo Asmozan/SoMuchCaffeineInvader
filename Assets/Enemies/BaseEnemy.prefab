@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ecb445ca05ac04dad0769ca7d77c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _addScoreEvent: {fileID: 11400000, guid: f8cd032e94f7f71458dca8d2cd45ff1d, type: 2}
+  _addExperienceEvent: {fileID: 11400000, guid: f25d7a242b64b624fb81721f37da3714, type: 2}
 --- !u!114 &3146874673085765726
 MonoBehaviour:
   m_ObjectHideFlags: 0
