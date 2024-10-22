@@ -21,7 +21,7 @@ namespace Invader.Enemies
         {
             InitializeFactory();
             
-            if (_spawnArea != null)
+            if (_spawnArea == null)
             {   
                 Debug.LogError("Spawn area is not assigned.");
             }

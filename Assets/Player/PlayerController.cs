@@ -1,3 +1,5 @@
+using Invader.General;
+using Invader.Utility.Events;
 using UnityEngine;
 
 namespace Invader.Player
@@ -22,9 +24,22 @@ namespace Invader.Player
         
         private void Awake()
         {
-            TryGetComponent(out _movement);
-            TryGetComponent(out _playerWeapon);
-            TryGetComponent(out _playerAbility);
+            if (!TryGetComponent(out _health))
+            {
+                Debug.LogError("Health component not found.");
+            }
+            if (!TryGetComponent(out _movement))
+            {
+                Debug.LogError("Movement component not found.");
+            }
+            if (!TryGetComponent(out _playerWeapon))
+            {
+                Debug.LogError("PlayerWeapon component not found.");
+            }
+            if (!TryGetComponent(out _playerAbility))
+            {
+                Debug.LogError("PlayerAbility component not found.");
+            }
             
             _health.OnDeath += OnDeath;
         }

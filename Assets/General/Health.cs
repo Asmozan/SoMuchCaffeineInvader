@@ -50,6 +50,8 @@ namespace Invader.General
             Debug.Log($"{gameObject.name} took {damage} damage. Current health: {_currentHealth}");
             _currentHealth -= damage;
             
+            Debug.Log($"{gameObject.name} took {damage} damage. Current health: {_currentHealth}");
+
             _currentHealth = Mathf.Max(_currentHealth, 0);
             
             if (_currentHealth <= 0)
