@@ -6,6 +6,8 @@ namespace Invader.General
 {
     public class Health : MonoBehaviour, IDamageable
     {
+        public UnityAction OnDamageTaken;
+        
         public int MaxHealth
         {
             get { return _maxHealth; }
@@ -44,6 +46,7 @@ namespace Invader.General
         
         public void TakeDamage(int damage)
         {
+            OnDamageTaken?.Invoke();
             Debug.Log($"{gameObject.name} took {damage} damage. Current health: {_currentHealth}");
             _currentHealth -= damage;
             

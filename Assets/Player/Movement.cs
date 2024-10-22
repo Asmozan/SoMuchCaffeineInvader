@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Invader.Player
@@ -18,6 +17,16 @@ namespace Invader.Player
         public void Move(Vector3 direction)
         {
             _transform.position += direction * (Speed * Time.deltaTime);
+        }
+        
+        public void IncreaseSpeedBy(float speedIncreasePercentage)
+        {
+            Speed += Speed * speedIncreasePercentage;
+        }
+        
+        public void DecreaseSpeedBy(float speedDecreasePercentage)
+        {
+            Speed -= Speed * speedDecreasePercentage;
         }
     }
 }
