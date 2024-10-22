@@ -47,7 +47,6 @@ namespace Invader.General
         public void TakeDamage(int damage)
         {
             OnDamageTaken?.Invoke();
-            Debug.Log($"{gameObject.name} took {damage} damage. Current health: {_currentHealth}");
             _currentHealth -= damage;
             
             Debug.Log($"{gameObject.name} took {damage} damage. Current health: {_currentHealth}");
