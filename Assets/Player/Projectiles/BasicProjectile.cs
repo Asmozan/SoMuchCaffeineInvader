@@ -67,5 +67,10 @@ namespace Invader.Player.Projectiles
         {
             transform.position = transformPosition;
         }
+        
+        public void SetDamage(int damage)
+        {
+            _damageAmount = damage;
+        }
     }
 }

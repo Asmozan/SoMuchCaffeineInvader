@@ -1,0 +1,22 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "experienceRequired": 100,
+      "specialAbilityCooldown": 10.0,
+      "damage": 50
+    },
+    {
+      "level": 2,
+      "experienceRequired": 200,
+      "specialAbilityCooldown": 9.0,
+      "damage": 80
+    },
+    {
+      "level": 3,
+      "experienceRequired": 300,
+      "specialAbilityCooldown": 8.0,
+      "damage": 100
+    }
+  ]
+}
