@@ -59,8 +59,9 @@ namespace Invader.Player
 
             _playerWeapon.SetDamage(currentLevelData.Damage);
 
-            // Update special ability cooldown
-            //_playerAbility.SetCooldown(currentLevelData.SpecialAbilityCooldown);
+            _playerAbility.SetCooldown(currentLevelData.SpecialAbilityCooldown);
+            _playerAbility.SetDamage(currentLevelData.Damage);
+            _playerAbility.SetRadius(currentLevelData.SpecialAbilityRadius);
 
             Debug.Log($"Leveled up to Level {currentLevelData.Level}");
         }
