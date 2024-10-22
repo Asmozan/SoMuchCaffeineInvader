@@ -7,19 +7,28 @@ namespace Invader.Player.Projectiles
 {
     [Serializable]
     [RequireComponent(typeof(Movement))]
-    [RequireComponent(typeof(Collider))]
     public class BasicProjectile : MonoBehaviour
     {
         public Action ReturnToPool { get; set; }
-        
-        [SerializeField] private int _damageAmount = 50;
-        
+
+        [field: SerializeField]
+        public int DamageAmount
+        {
+            get;
+            set;
+        }
+
         private Movement _movement;
         private Coroutine _lifetimeCoroutine;
         
         private void Awake()
         {
             TryGetComponent(out _movement);
+            
+            if (!GetComponentInChildren<Collider>())
+            {
+                Debug.LogError("No collider found but it's needed!", this);
+            }
         }
         
         private void OnEnable()
@@ -58,7 +67,7 @@ namespace Invader.Player.Projectiles
                 return;
             }
             
-            damageable.TakeDamage(_damageAmount);
+            damageable.TakeDamage(DamageAmount);
 
             ReturnToPool?.Invoke();
         }
@@ -70,7 +79,7 @@ namespace Invader.Player.Projectiles
         
         public void SetDamage(int damage)
         {
-            _damageAmount = damage;
+            DamageAmount = damage;
         }
     }
 }

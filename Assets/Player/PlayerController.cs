@@ -13,10 +13,13 @@ namespace Invader.Player
         
         private Movement _movement;
         private PlayerWeapon _playerWeapon;
+        private PlayerAbility _playerAbility;
+        
         private void Awake()
         {
             TryGetComponent(out _movement);
             TryGetComponent(out _playerWeapon);
+            TryGetComponent(out _playerAbility);
         }
         
         private void Update()
@@ -26,6 +29,12 @@ namespace Invader.Player
             if (IsFireButtonPressed)
             {
                 _playerWeapon.Fire();
+            }
+
+            if (IsSpecialButtonPressed)
+            {
+                _playerAbility.Use();
+                IsSpecialButtonPressed = false;
             }
         }
     }

@@ -8,6 +8,7 @@ namespace Invader.Player
         public int Level;
         public int ExperienceRequired;
         public float SpecialAbilityCooldown;
+        public float SpecialAbilityRadius;
         public int Damage;
     }
 }

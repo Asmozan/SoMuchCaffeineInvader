@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using Invader.Player.Projectiles;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Invader.Player
@@ -34,7 +32,7 @@ namespace Invader.Player
         
         public void SetDamage(int damage)
         {
-            _projectile.SetDamage(damage);
+            _projectile.DamageAmount = damage;
         }
     }
 }

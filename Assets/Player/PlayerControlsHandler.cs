@@ -25,7 +25,10 @@ namespace Invader.Player
         
         public void OnSpecial(InputAction.CallbackContext context)
         {
-            _playerController.IsSpecialButtonPressed = context.performed;
+            if (context.performed)
+            {
+                _playerController.IsSpecialButtonPressed = true;
+            }
         }
     }
 }
