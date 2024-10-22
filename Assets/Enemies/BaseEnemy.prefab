@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6126652892214022039}
   - component: {fileID: 3146874673085765726}
   - component: {fileID: 8969265289389226743}
+  - component: {fileID: 8296436944625204600}
+  - component: {fileID: 7180166997175265852}
   m_Layer: 6
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -148,3 +150,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8919ce4e0c5a64a8cf21bc6cbc7766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8296436944625204600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817992444890060633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53c096e1458dc54ba543252d3e1ab58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healBelowHealthPercentage: 0.5
+--- !u!114 &7180166997175265852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817992444890060633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6243504e1075d640b73b6318babadc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEventListeningTo: {fileID: 11400000, guid: 0021f4dd5f4c7c14fb7b68b6abf558eb, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8296436944625204600}
+        m_TargetAssemblyTypeName: Invader.Enemies.Abilities.OnEventFullHealAbility,
+          Assembly-CSharp
+        m_MethodName: FullHeal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

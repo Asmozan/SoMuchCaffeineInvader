@@ -50,10 +50,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
       propertyPath: m_Name
-      value: BaseEnemy
+      value: CubeEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5383953346524688460}
+    - targetCorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5945241631937257005}
   m_SourcePrefab: {fileID: 100100000, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+--- !u!1 &7227123015435735253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+  m_PrefabInstance: {fileID: 4239442054056298380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5383953346524688460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227123015435735253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a513087ec0e80c14e95117ccbc6d3830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healPercentage: 0.1
+--- !u!114 &5945241631937257005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227123015435735253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6243504e1075d640b73b6318babadc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEventListeningTo: {fileID: 11400000, guid: 818566196e2a2a14390cdf67e9ec9269, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5383953346524688460}
+        m_TargetAssemblyTypeName: Invader.Enemies.Abilities.OnEventHealingAbility,
+          Assembly-CSharp
+        m_MethodName: Heal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

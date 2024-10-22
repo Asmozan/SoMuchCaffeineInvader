@@ -8,22 +8,14 @@ namespace Invader.Utility.Events
     {
         public List<GameEventListener> listeners = new List<GameEventListener>();
 
-        public void Raise(Component sender)
+        public void Raise()
         {
             foreach (var listener in listeners)
             {
-                listener.OnEventRaised(sender, null);
+                listener.OnEventRaised();
             }
         }
-    
-        public void Raise(Component sender, object data)
-        {
-            foreach (var listener in listeners)
-            {
-                listener.OnEventRaised(sender, data);
-            }
-        }
-    
+        
         public void RegisterListener(GameEventListener listener)
         {
             if (listeners.Contains(listener))

@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCubeEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7180166997175265852, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      propertyPath: _gameEventListeningTo
+      value: 
+      objectReference: {fileID: 11400000, guid: 0021f4dd5f4c7c14fb7b68b6abf558eb, type: 2}
     - target: {fileID: 9042694841768320152, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -91,5 +95,74 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3411929316740064565}
+    - targetCorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5549289188511148538}
+    - targetCorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4120577465272125358}
   m_SourcePrefab: {fileID: 100100000, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+--- !u!1 &6496370796092299414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6817992444890060633, guid: 7189127579bbee54994ca80c76b20ddf, type: 3}
+  m_PrefabInstance: {fileID: 340548233937129423}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3411929316740064565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496370796092299414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a513087ec0e80c14e95117ccbc6d3830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healPercentage: 0.1
+--- !u!114 &5549289188511148538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496370796092299414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6243504e1075d640b73b6318babadc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEventListeningTo: {fileID: 11400000, guid: 818566196e2a2a14390cdf67e9ec9269, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3411929316740064565}
+        m_TargetAssemblyTypeName: Invader.Enemies.Abilities.OnEventHealingAbility,
+          Assembly-CSharp
+        m_MethodName: Heal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4120577465272125358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496370796092299414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9a6ba43529c94896b738fdd861303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onDeathEvent: {fileID: 11400000, guid: 0021f4dd5f4c7c14fb7b68b6abf558eb, type: 2}
