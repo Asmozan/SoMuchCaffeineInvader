@@ -5,26 +5,25 @@ using UnityEngine.Events;
 namespace Invader.Utility.Events
 {
     [Serializable]
-    public class ExtendedUnityEvent : UnityEvent<Component, object> { }
 
     public class GameEventListener : MonoBehaviour
     {
-        [SerializeField] private GameEvent _gameEvent;
-        [SerializeField] private ExtendedUnityEvent _response;
+        [SerializeField] private GameEvent _gameEventListeningTo;
+        [SerializeField] private UnityEvent _response;
     
         private void OnEnable()
         {
-            _gameEvent.RegisterListener(this);
+            _gameEventListeningTo.RegisterListener(this);
         }
 
         private void OnDisable()
         {
-            _gameEvent.UnregisterListener(this);
+            _gameEventListeningTo.UnregisterListener(this);
         }
 
-        public void OnEventRaised(Component sender, object data)
+        public void OnEventRaised()
         {
-            _response.Invoke(sender, data);
+            _response.Invoke();
         }
     }
 
