@@ -31,5 +31,10 @@ namespace Invader.Player
             _projectileFactory.GetProjectile().SetExitPoint(transform.position);
             _nextFire = Time.time + _fireRate;
         }
+        
+        public void SetDamage(int damage)
+        {
+            _projectile.SetDamage(damage);
+        }
     }
 }
