@@ -55,6 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e5e93ba246db7479bfaf460ca1d15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 1000
+  _gameOverEvent: {fileID: 11400000, guid: f9b082b8793446c4bb16737ba086c76f, type: 2}
 --- !u!114 &7625665373099863402
 MonoBehaviour:
   m_ObjectHideFlags: 0
