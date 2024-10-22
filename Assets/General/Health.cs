@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -31,6 +32,12 @@ namespace Invader.General
             {
                 HandleDeath();
             }
+        }
+
+        public void HealByMaxPercentage(float percentage)
+        {
+            int healAmount = (int) (MaxHealth * percentage);
+            _currentHealth = Math.Min(_currentHealth + healAmount, MaxHealth);
         }
         
         public void ResetHealth()
