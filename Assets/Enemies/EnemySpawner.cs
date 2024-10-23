@@ -126,7 +126,7 @@ namespace Invader.Enemies
         {
             if (_enemyDataList.Count > 0)
             {
-                Debug.LogWarning("Enemy prefabs must be reattached.");
+                Debug.LogWarning("Check if Enemy prefabs are attached.");
                 return;
             }
             
