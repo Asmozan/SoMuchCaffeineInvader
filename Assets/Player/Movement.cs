@@ -4,7 +4,7 @@ namespace Invader.Player
 {
     public class Movement : MonoBehaviour
     {
-        [field: SerializeField]
+        [field: SerializeField, HideInInspector]
         public float Speed { private get; set; }
 
         private Transform _transform;
