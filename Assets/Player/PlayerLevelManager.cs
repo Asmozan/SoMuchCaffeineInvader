@@ -2,6 +2,10 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace Invader.Player
 {
     public class PlayerLevelManager : MonoBehaviour
@@ -23,13 +27,6 @@ namespace Invader.Player
             ApplyLevelStats();
         }
         
-        [ContextMenu("Load Level Data")]
-        private void LoadLevelData()
-        {
-            PlayerLevelDataList levelDataList = JsonConvert.DeserializeObject<PlayerLevelDataList>(_levelDataJson.text);
-            _levels = levelDataList.Levels;
-        }
-
         public void AddExperience(object data)
         {
             if (!(data is int amount))
@@ -65,5 +62,25 @@ namespace Invader.Player
 
             Debug.Log($"Leveled up to Level {currentLevelData.Level}");
         }
+        
+        #if UNITY_EDITOR
+        
+        [ContextMenu("Load Level Data")]
+        private void LoadLevelData()
+        {
+            PlayerLevelDataList levelDataList = JsonConvert.DeserializeObject<PlayerLevelDataList>(_levelDataJson.text);
+            _levels = levelDataList.Levels;
+        }
+
+        [ContextMenu("Save Level Data")]
+        private void SaveLevelData()
+        {
+            PlayerLevelDataList levelDataList = new PlayerLevelDataList {Levels = _levels};
+            string json = JsonConvert.SerializeObject(levelDataList, Formatting.Indented);
+            string path = AssetDatabase.GetAssetPath(_levelDataJson);
+            System.IO.File.WriteAllText(path, json);
+        }
+        
+        #endif // UNITY_EDITOR
     }
 }

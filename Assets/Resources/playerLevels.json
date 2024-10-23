@@ -1,25 +1,25 @@
 {
-  "levels": [
+  "Levels": [
     {
-      "level": 1,
-      "experienceRequired": 100,
-      "specialAbilityCooldown": 10.0,
-      "specialAbilityRadius": 5.0,
-      "damage": 50
+      "Level": 1,
+      "ExperienceRequired": 100,
+      "SpecialAbilityCooldown": 10.0,
+      "SpecialAbilityRadius": 5.0,
+      "Damage": 50
     },
     {
-      "level": 2,
-      "experienceRequired": 200,
-      "specialAbilityCooldown": 9.0,
-      "specialAbilityRadius": 5.0,
-      "damage": 80
+      "Level": 2,
+      "ExperienceRequired": 200,
+      "SpecialAbilityCooldown": 9.0,
+      "SpecialAbilityRadius": 5.0,
+      "Damage": 80
     },
     {
-      "level": 3,
-      "experienceRequired": 300,
-      "specialAbilityCooldown": 8.0,
-      "specialAbilityRadius": 5.0,
-      "damage": 100
+      "Level": 3,
+      "ExperienceRequired": 300,
+      "SpecialAbilityCooldown": 8.0,
+      "SpecialAbilityRadius": 5.0,
+      "Damage": 100
     }
   ]
 }
