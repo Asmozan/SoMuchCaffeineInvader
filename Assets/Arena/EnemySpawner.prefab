@@ -46,34 +46,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyDataJson: {fileID: 4900000, guid: f7ef27abba75ac14dad73527b5868d63, type: 3}
   _enemyDataList:
-  - Type: Rectangle
+  - Type: Cube
     Health: 100
     SpawnChance: 50
     MovementSpeedMultiplier: 1
     ScorePoints: 100
     ExperiencePoints: 100
-    Prefab: {fileID: 7227123015435735253, guid: 5c81ca056b2265141abd4344d3dd2671, type: 3}
-  - Type: BigRectangle
+    Prefab: {fileID: 8057986805513422875, guid: 5c81ca056b2265141abd4344d3dd2671, type: 3}
+  - Type: LargeCube
     Health: 200
     SpawnChance: 15
     MovementSpeedMultiplier: 0.8
     ScorePoints: 200
     ExperiencePoints: 200
-    Prefab: {fileID: 6496370796092299414, guid: d721eadeee53c7f498724401daeaaf5d, type: 3}
+    Prefab: {fileID: 5890673715938377816, guid: d721eadeee53c7f498724401daeaaf5d, type: 3}
   - Type: Sphere
     Health: 100
     SpawnChance: 25
     MovementSpeedMultiplier: 1.5
     ScorePoints: 100
     ExperiencePoints: 100
-    Prefab: {fileID: 1464767405490549147, guid: 34162f67953082841a0f16010e26d38c, type: 3}
-  - Type: BigSphere
+    Prefab: {fileID: 2291127595932379477, guid: 34162f67953082841a0f16010e26d38c, type: 3}
+  - Type: LargeSphere
     Health: 200
     SpawnChance: 10
     MovementSpeedMultiplier: 1.5
-    ScorePoints: 0
-    ExperiencePoints: 0
-    Prefab: {fileID: 1797383809333950766, guid: e8ed938c2da609546bb614769f700e7f, type: 3}
+    ScorePoints: 200
+    ExperiencePoints: 200
+    Prefab: {fileID: 1398870522696180192, guid: e8ed938c2da609546bb614769f700e7f, type: 3}
   _spawnArea: {fileID: 0}
   _spawnRate: 1
   _baseEnemySpeed: 2

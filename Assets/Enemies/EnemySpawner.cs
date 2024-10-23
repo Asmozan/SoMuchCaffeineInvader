@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using Newtonsoft.Json;
+using UnityEditor;
 
 namespace Invader.Enemies
 {
@@ -42,32 +43,7 @@ namespace Invader.Enemies
             SpawnEnemy();
             _nextSpawn = Time.time + _spawnRate;
         }
-        
-        [ContextMenu("Load Enemy Data")]
-        private void LoadEnemyData()
-        {
-            EnemyDataList enemyDataList = JsonConvert.DeserializeObject<EnemyDataList>(_enemyDataJson.text);
-            _enemyDataList = enemyDataList.Enemies;
-            _baseEnemySpeed = enemyDataList.BaseEnemySpeed;
-            
-            Debug.Log($"Loaded {_enemyDataList.Count} enemies with base speed {_baseEnemySpeed}.");
-            
-            
-            ValidateSpawnChances();
-        }
 
-        [ContextMenu("Save Enemy Data")]
-        private void SaveEnemyData()
-        {
-            EnemyDataList enemyDataList = new EnemyDataList
-            {
-                Enemies = _enemyDataList
-            };
-
-            string json = JsonUtility.ToJson(enemyDataList, true);
-            System.IO.File.WriteAllText(Application.dataPath + "/Enemies/EnemyData.json", json);
-        }
-        
         private void InitializeFactory()
         {
             _enemyFactory = new EnemyFactory();
@@ -83,7 +59,7 @@ namespace Invader.Enemies
             }
             
             Vector3 spawnPosition = _spawnArea.GetRandomPosition();
-            GameObject enemy = _enemyFactory.CreateEnemy(transform,
+            Enemy enemy = _enemyFactory.CreateEnemy(transform,
                 selectedEnemyData,
                 _baseEnemySpeed
             );
@@ -129,9 +105,12 @@ namespace Invader.Enemies
 
             if (!isTotalChanceValid)
             {
+                AdjustSpawnChance(totalChance);
                  return;
             }
-
+        }
+        private void AdjustSpawnChance(float totalChance)
+        {
             Debug.LogWarning($"Total spawn chance is {totalChance}%, adjusting to 100%.");
 
             foreach (var enemyData in _enemyDataList)
@@ -139,5 +118,41 @@ namespace Invader.Enemies
                 enemyData.SpawnChance = (enemyData.SpawnChance / totalChance) * 100f;
             }
         }
+        
+        #if UNITY_EDITOR
+        
+        [ContextMenu("Load Enemy Data")]
+        private void LoadEnemyData()
+        {
+            if (_enemyDataList.Count > 0)
+            {
+                Debug.LogWarning("Enemy prefabs must be reattached.");
+                return;
+            }
+            
+            EnemyDataList enemyDataList = JsonConvert.DeserializeObject<EnemyDataList>(_enemyDataJson.text);
+            _enemyDataList = enemyDataList.Enemies;
+            _baseEnemySpeed = enemyDataList.BaseEnemySpeed;
+            
+            Debug.Log($"Loaded {_enemyDataList.Count} enemies with base speed {_baseEnemySpeed}.");
+            
+            ValidateSpawnChances();
+        }
+
+        [ContextMenu("Save Enemy Data")]
+        private void SaveEnemyData()
+        {
+            EnemyDataList enemyDataList = new EnemyDataList
+            {
+                Enemies = _enemyDataList,
+                BaseEnemySpeed = _baseEnemySpeed
+            };
+
+            string json = JsonConvert.SerializeObject(enemyDataList, Formatting.Indented);
+            string path = AssetDatabase.GetAssetPath(_enemyDataJson);
+            System.IO.File.WriteAllText(path, json);
+        }
+        
+        #endif // UNITY_EDITOR
     }
 }

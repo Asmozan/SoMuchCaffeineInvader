@@ -1,33 +1,37 @@
 {
-  "enemies": [
+  "BaseEnemySpeed": 2.0,
+  "Enemies": [
     {
-      "type": "Rectangle",
-      "health": 100,
-      "spawnChance": 50,
-      "movementSpeedMultiplier": 1.0,
-      "Prefab": null
+      "Type": "Cube",
+      "Health": 100,
+      "SpawnChance": 50.0,
+      "MovementSpeedMultiplier": 1.0,
+      "ScorePoints": 100,
+      "ExperiencePoints": 100
     },
     {
-      "type": "BigRectangle",
-      "health": 200,
-      "spawnChance": 15,
-      "movementSpeedMultiplier": 0.8,
-      "Prefab": null
+      "Type": "LargeCube",
+      "Health": 200,
+      "SpawnChance": 15.0,
+      "MovementSpeedMultiplier": 0.8,
+      "ScorePoints": 200,
+      "ExperiencePoints": 200
     },
     {
-      "type": "Sphere",
-      "health": 100,
-      "spawnChance": 25,
-      "movementSpeedMultiplier": 1.5,
-      "Prefab": null
+      "Type": "Sphere",
+      "Health": 100,
+      "SpawnChance": 25.0,
+      "MovementSpeedMultiplier": 1.5,
+      "ScorePoints": 100,
+      "ExperiencePoints": 100
     },
     {
-      "type": "BigSphere",
-      "health": 200,
-      "spawnChance": 10,
-      "movementSpeedMultiplier": 1.5,
-      "Prefab": null
+      "Type": "LargeSphere",
+      "Health": 200,
+      "SpawnChance": 10.0,
+      "MovementSpeedMultiplier": 1.5,
+      "ScorePoints": 200,
+      "ExperiencePoints": 200
     }
-  ],
-  "baseEnemySpeed": 2.0
+  ]
 }

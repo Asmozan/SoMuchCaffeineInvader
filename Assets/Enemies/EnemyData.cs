@@ -1,4 +1,5 @@
-using UnityEngine;
+using Newtonsoft.Json;
+
 namespace Invader.Enemies
 {
     [System.Serializable]
@@ -10,6 +11,7 @@ namespace Invader.Enemies
         public float MovementSpeedMultiplier;
         public int ScorePoints;
         public int ExperiencePoints;
-        public GameObject Prefab;
+        [JsonIgnore]
+        public Enemy Prefab;
     }
 }
