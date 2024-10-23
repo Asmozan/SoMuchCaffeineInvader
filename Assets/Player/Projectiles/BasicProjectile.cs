@@ -11,7 +11,7 @@ namespace Invader.Player.Projectiles
     {
         public Action ReturnToPool { get; set; }
 
-        [field: SerializeField]
+        [field: SerializeField, HideInInspector]
         public int DamageAmount
         {
             get;
