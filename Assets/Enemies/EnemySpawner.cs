@@ -2,7 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using Newtonsoft.Json;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 namespace Invader.Enemies
 {
